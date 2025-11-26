@@ -10,7 +10,9 @@ let endVal: number = parseInt(prompt("Enter End Value: ") || "0");
 
 while (endVal <= startVal) {
   endVal = parseInt(
-    prompt("Sorry, ending value must be larger. Enter another ending value: ") || "0"
+    prompt(
+      "Sorry, ending value must be larger. Enter another ending value: ",
+    ) || "0",
   );
 }
 
