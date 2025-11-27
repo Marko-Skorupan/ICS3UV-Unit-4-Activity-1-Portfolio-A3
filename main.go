@@ -7,24 +7,35 @@
 
 package main
 
-import "fmt"
+import (
+    "bufio"
+    "fmt"
+    "os"
+    "strconv"
+    "strings"
+)
 
 func main() {
-	var start, end int
+    reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter Start Value: ")
-		fmt.Scan(&start)
+    fmt.Print("Enter Start Value: ")
+    startStr, _ := reader.ReadString('\n')
+    startStr = strings.TrimSpace(startStr)
+    start, _ := strconv.Atoi(startStr)
 
-		fmt.Print("Enter End Value: ")
-		fmt.Scan(&end)
+    fmt.Print("Enter End Value: ")
+    endStr, _ := reader.ReadString('\n')
+    endStr = strings.TrimSpace(endStr)
+    end, _ := strconv.Atoi(endStr)
 
-		for end <= start {
-			fmt.Print("Sorry, ending value must be larger. Enter another ending value: ")
-			fmt.Scan(&end)
-		}
+    for end <= start {
+        fmt.Print("Sorry, your ending value must be larger. Enter another ending value: ")
+        endStr, _ = reader.ReadString('\n')
+        endStr = strings.TrimSpace(endStr)
+        end, _ = strconv.Atoi(endStr)
+    }
 
-		for counter := start; counter <= end; counter++ {
-			fmt.Println(counter)
-		}
-	fmt.Println("\nDone.")
+    for i := start; i <= end; i++ {
+        fmt.Println(i)
+    }
 }
